@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="New Task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <%= task.name %>
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit">❌</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    
+    <!-- Form to Add a New Task
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="New Task" required>
+        <button type="submit">Add</button>
+    </form>
+    
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <!-- Display Task Name -->
+                <!-- <form action="/update" method="POST" style="display: inline;">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <input type="text" name="newName" value="<%= task.name %>" required>
+                    <button type="submit">✏️ Update</button>
+                </form>
+
+                <!-- Delete Button -->
+                <!-- <form action="/delete" method="POST" style="display: inline;">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit">❌ Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html> -->
+ -->
+
+
+  --> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .completed { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    
+    <!-- Form to Add a New Task -->
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="New Task" required>
+        <button type="submit">➕ Add</button>
+    </form>
+    
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <!-- Mark as Done Button -->
+                <form action="/mark" method="POST" style="display: inline;">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit"><%= task.completed ? "✅ Undo" : "✔️ Done" %></button>
+                </form>
+
+                <!-- Display Task Name -->
+                <form action="/update" method="POST" style="display: inline;">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <input type="text" name="newName" value="<%= task.name %>" class="<%= task.completed ? 'completed' : '' %>" required>
+                    <button type="submit">✏️ Update</button>
+                </form>
+
+                <!-- Delete Button -->
+                <form action="/delete" method="POST" style="display: inline;">
+                    <input type="hidden" name="taskId" value="<%= task._id %>">
+                    <button type="submit">❌ Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
+
+  
